@@ -1,44 +1,23 @@
 
 .images-container {
   margin: 20px;
-  background-color: #0000FF;
+  // background-color: #0000FF;
   width: auto;
-  height: 100%;
   display: flex;
   flex-direction: column;
-
-  .input-section {
-    border: 2px solid #FF0000;
-    .email {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      width: 250px;
-      margin: 5px auto 5px auto;
-      border: 2px solid #FF0000;
-      label {
-        height: 26px;
-        display: flex;
-        flex-direction: column;
-        line-height: 2;
-      }
-      input {
-        margin-bottom: 5px;
-        width: 220px;
-      }
-      button {
-        width: 220px;
-        height: auto;
-        border-radius: 5px;
-        margin-bottom: 5px;
-      }
-    }
-  }
-}
+  height: calc(100vh - 292px);
+  padding: 10px;
  .image-area {
-   height: 300px;
+   height: calc(100vh - 292px);
    width: auto;
-   background-color: #FFFF00;
-   margin: 10px;
+   max-height: 100%;
+   // background-color: #FFFF00;
+   padding: 1px;
+
+   img {
+     max-width: 100%;
+     max-height: 100%;
+
+   }
  }
+}

@@ -1,6 +1,6 @@
 @import '_header.scss';
 @import '_image-boxes.scss';
-
+@import '_input.scss';
 @import '_footer.scss';
 
 * {
@@ -10,4 +10,8 @@
   letter-spacing: .4px;
   color: #000000;
   line-height: 1.3;
+
 }
+  .noheadnofoot {
+    height: calc(100vh - 332px);
+  }
