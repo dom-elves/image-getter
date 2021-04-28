@@ -1,0 +1,13 @@
+@import '_header.scss';
+@import '_image-boxes.scss';
+
+@import '_footer.scss';
+
+* {
+  box-sizing: border-box;
+  font-size: 1rem;
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: .4px;
+  color: #000000;
+  line-height: 1.3;
+}
