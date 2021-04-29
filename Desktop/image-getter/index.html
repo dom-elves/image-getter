@@ -11,41 +11,69 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link rel="preconnect" href="https://fonts.gstatic.com/%22%3E">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="css/style.css">
-  <script src="app.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 
 
 <body>
+<div class="menu-container">
+  <div class="menu">
+    <p>eventually a list of email addresses will go here</p>
+  </div>
+</div>
+<div class="background">
+<div class="width">
 <header>
   <div class="header-container">
-    <h1>Image Getter</h1>
-    <h4>A simple image assigner</h4>
+    <div class="burger-container">
+      <div id="burger1" class="burger"></div>
+      <div id="burger2" class="burger"></div>
+      <div id="burger3" class="burger"></div>
+    </div>
+    <div class="heading">
+      <h1>Image Getter</h1>
+      <h4>A simple image assigner</h4>
+    </div>
   </div>
 </header>
 
 
   <div class="images-container">
     <div class="image-area">
-
       <img id="image" class="image"></img>
+    </div>
+    </div>
 
-    </div>
-    </div>
+<div class="footer-container">
     <div class="input-section">
+      <div class="left">
+        <div class="arrow top1"></div>
+        <div class="arrow bottom1"></div>
+      </div>
       <div class="email">
         <label for="email">Like this image? Assign it!</label>
         <input type="email" id="email" name="email" placeholder=" Enter your email address">
-        <button  onclick="getimage()"> button to assign </button>
+        <button id="validate"> Assign your email </button>
       </div>
-  </div>
+      <div class="right" id="right" onclick="getimage()">
+        <div class="arrow top2"></div>
+        <div class="arrow bottom2"></div>
+      </div>
+      </div>
+
+
 
 
 <footer>
-  <div class="footer-container">
+
     <h1>Placeholder text</h1>
   </div>
 </footer>
+<script src="app.js"></script>
+</div>
+</div>
 </body>
 
 </html>

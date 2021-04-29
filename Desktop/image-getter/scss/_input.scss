@@ -1,18 +1,58 @@
-
-
+@mixin arrows { //creates the container for the arrows & the divs for the arrows themselves
+  background-color: #FF0000;
+  height: 100px;
+  width: 100px;
+  cursor: pointer;
+  margin: 4px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 50%;
+  .arrow {
+    height: 5px;
+    width: 50px;
+    border-radius: 3px;
+    background-color: #FFFF00;
+    margin: 14px;
+  }
+}
 
 .input-section {
   border: 2px solid #FF0000;
+  display: flex;
+  flex-direction: row;
+  margin: 5px auto 5px auto;
+  justify-content: center;
+  background-color: #FFFFFF;
 
+  .left {
+    @include arrows;
+    .top1 {
+      transform: rotate(-45deg);
+    }
+    .bottom1 {
+      transform: rotate(45deg);
+    }
+  }
+  .right {
+    @include arrows;
+    .top2 {
+      transform: rotate(45deg);
+    }
+    .bottom2 {
+      transform: rotate(-45deg);
+    }
+  }
 
   .email {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 5px auto 5px auto;
+    margin: 5px;
     border: 2px solid #FF0000;
-    max-width: 250px;
+    width: 300px;
     height: auto;
     label {
       height: 26px;
@@ -22,16 +62,16 @@
     }
     input {
       margin-bottom: 5px;
-      width: 220px;
-      max-width: 250px;
+      width: 290px;
       height: auto;
+      text-align: center;
     }
     button {
-      width: 220px;
+      width: 290px;
       height: auto;
       border-radius: 5px;
       margin-bottom: 5px;
-      max-width: 250px;
+
       height: auto;
     }
   }

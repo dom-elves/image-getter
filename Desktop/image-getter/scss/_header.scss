@@ -4,4 +4,31 @@
   background-color: #FF0000;
   text-align: center;
   height: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  .heading {
+    display: flex;
+    flex-direction: column;
+  }
+  .burger-container {
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    background-color: #FFFFFF;
+    margin-right: 100px;
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+
+      .burger {
+        height: 4px;
+        width: 40px;
+        background-color: #Fe23a0;
+        margin: 2px;
+      }
+  }
 }
