@@ -11,9 +11,10 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link rel="preconnect" href="https://fonts.gstatic.com/%22%3E">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-
   <link rel="stylesheet" href="css/style.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
 </head>
 
 
@@ -23,57 +24,90 @@
     <p>eventually a list of email addresses will go here</p>
   </div>
 </div>
-<div class="background">
-<div class="width">
+
+
 <header>
-  <div class="header-container">
-    <div class="burger-container">
-      <div id="burger1" class="burger"></div>
-      <div id="burger2" class="burger"></div>
-      <div id="burger3" class="burger"></div>
-    </div>
-    <div class="heading">
+<div class="header-container">
+<div class="burger-box">
+<div class="burger-container">
+  <div id="burger1" class="burger animation"></div>
+  <div id="burger2" class="burger animation"></div>
+  <div id="burger3" class="burger animation"></div>
+</div>
+</div>
+
+
+    <div class="heading-container">
+      <div class="heading">
       <h1>Image Getter</h1>
       <h4>A simple image assigner</h4>
+    </div>
     </div>
   </div>
 </header>
 
 
-  <div class="images-container">
+<div class="main">
+  <div class="info" id="info">
+    <div class="photographer">
+      <h4 id="photographer">Photographer:&nbsp;</h4>
+      <h4 id="name"></h4>
+    </div>
+    <div class="imageid">
+      <h4 id="imageid">ImageID:&nbsp;</h4>
+      <h4 id="number"></h4>
+    </div>
+  </div>
+  <div class="image-container">
+    <div class="resolution">
+      <p>Original Resolution:&nbsp;</p>
+      <p id="imgwidth"></p>
+      <p>&nbsp;by&nbsp;</p>
+      <p id="imgheight"></p>
+      <p>&nbsp;pixels.</p>
+    </div>
     <div class="image-area">
       <img id="image" class="image"></img>
     </div>
+    <div class="photo-source">
+      <p>See this image on <a id="unsplash">Unsplash</a></p>
+    </div>
     </div>
 
-<div class="footer-container">
     <div class="input-section">
-      <div class="left">
-        <div class="arrow top1"></div>
-        <div class="arrow bottom1"></div>
+      <div class="input-content">
+      <p>What would you like to do?</p>
+      <div class="aside">
+       <div class="buttons">
+        <button class="assign-button">Assign Image <i class="fas fa-plus"></i></button>
+        <button class="new-button">New Image <i class="fas fa-redo"></i></button>
       </div>
-      <div class="email">
-        <label for="email">Like this image? Assign it!</label>
-        <input type="email" id="email" name="email" placeholder=" Enter your email address">
-        <button id="validate"> Assign your email </button>
-      </div>
-      <div class="right" id="right" onclick="getimage()">
-        <div class="arrow top2"></div>
-        <div class="arrow bottom2"></div>
-      </div>
-      </div>
+      <div class="triangle-container">
+        <div class="triangle">
+          </div>
+      <div class="popup">
+        <label for="email">Link this image to your email address:</label>
+        <input type="email" id="email" name="email">
+        <div class="popup-buttons">
+          <button class="link-button"> Link <i class="fas fa-link"></i> </button>
+          <button class="cancel-button"> Cancel <i class="fas fa-times"></i> </button>
+        </div>
+    </div>
 
-
-
-
-<footer>
-
-    <h1>Placeholder text</h1>
   </div>
-</footer>
+    </div>
+  </div>
+  </div>
+
+<div class="footer-container">
+  <footer>
+    <p>&copy; Dominic Elves, 2021</p>
+    <p>A product for Nematters</p>
+  </footer>
+</div>
+
+</div>
 <script src="app.js"></script>
-</div>
-</div>
 </body>
 
 </html>

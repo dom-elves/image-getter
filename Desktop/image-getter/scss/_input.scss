@@ -1,78 +1,114 @@
-@mixin arrows { //creates the container for the arrows & the divs for the arrows themselves
-  background-color: #FF0000;
-  height: 100px;
-  width: 100px;
-  cursor: pointer;
-  margin: 4px;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
-  border-radius: 50%;
-  .arrow {
-    height: 5px;
-    width: 50px;
-    border-radius: 3px;
-    background-color: #FFFF00;
-    margin: 14px;
-  }
-}
+
+@import '_variables.scss';
 
 .input-section {
-  border: 2px solid #FF0000;
+  border: 2px solid #503466;
   display: flex;
   flex-direction: row;
   margin: 5px auto 5px auto;
-  justify-content: center;
+
   background-color: #FFFFFF;
+  bottom: 0px;
 
-  .left {
-    @include arrows;
-    .top1 {
-      transform: rotate(-45deg);
-    }
-    .bottom1 {
-      transform: rotate(45deg);
-    }
-  }
-  .right {
-    @include arrows;
-    .top2 {
-      transform: rotate(45deg);
-    }
-    .bottom2 {
-      transform: rotate(-45deg);
-    }
-  }
-
-  .email {
+  width: 100%;
+  .input-content {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 5px;
-    border: 2px solid #FF0000;
-    width: 300px;
-    height: auto;
-    label {
-      height: 26px;
+    width: 100%;
+    p {
+      font-size: 24px;
+      color: #FFFFFF;
+      text-align: center;
+      width: 100%;
+      background-color: $darkblue;
+    }
+    .buttons {
       display: flex;
       flex-direction: column;
-      line-height: 2;
-    }
-    input {
-      margin-bottom: 5px;
-      width: 290px;
-      height: auto;
-      text-align: center;
-    }
-    button {
-      width: 290px;
-      height: auto;
-      border-radius: 5px;
-      margin-bottom: 5px;
-
-      height: auto;
+      margin-right: 50px;
+      button {
+        margin: 5px;
+        border-radius: 5px;
+        height: 80px;
+        width: 200px;
+        color: #FFFFFF;
+        border: none;
+      }
+      .assign-button {
+        background-color: $medblue;
+        &:hover {
+          cursor: pointer;
+          background-color: darken($medblue, 10%);
+        }
+      }
+      .new-button {
+        background-color: $lightblue;
+        &:hover {
+          cursor: pointer;
+          background-color: darken($lightblue, 10%);
+        }
+      }
     }
   }
+  .aside { //displays buttons and email input next to each other
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    .triangle-container {
+      position: relative;
+      .triangle {
+        width: 50px;
+        height: 50px;
+        background-color: $grey;
+        border-radius: 5px;
+        
+        transform: rotate(45deg) translateX(-5px) translateY(24px);
+        visibility: hidden;
+      }
+    }
+      .popup {
+        transform: translateY(-50px);
+        display: flex;
+        visibility: hidden;
+        flex-direction: column;
+        height: 170px;
+        background-color: $grey;
+        margin-top: 5px;
+        border-radius: 5px;
+
+        padding: 10px;
+        .popup-buttons {
+          display: flex;
+          justify-content: space-evenly;
+          margin: 25px 0px 10px 0px;
+          button {
+            height: 70px;
+            width: 100%;
+            border-radius: 5px;
+            border: none;
+            color: #FFFFFF;
+        }
+          .link-button {
+            margin-right: 5px;
+            background-color: #4ceb34;
+            &:hover {
+              cursor: pointer;
+              background-color: darken(#4ceb34, 20%);
+            }
+          }
+          .cancel-button {
+            margin-left: 5px;
+            background-color: #f0242e;
+            &:hover {
+              cursor: pointer;
+              background-color: darken(#f0242e, 20%);
+            }
+          }
+        }
+      }
+    }
+  }
+
+.rotate {
+  transform: rotate(360deg);
 }
