@@ -12,14 +12,40 @@
 }
 
 .menu-container .menu {
-  width: 300px;
+  width: 450px;
   height: 100%;
-  background-color: #000000;
+  background-color: #91A7FF;
   margin: 0px auto 0px auto;
+  display: flex;
+  flex-direction: column;
 }
 
-.menu-container .menu p {
+.menu-container .menu h3 {
   color: #FFFFFF;
+}
+
+.menu-container .menu .list {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  border: 2px solid #FF0000;
+  height: 100%;
+}
+
+.menu-container .menu .list h5 {
+  color: #FFFFFF;
+}
+
+.menu-container .menu .list .email-list, .menu-container .menu .list .id-list {
+  border: 2px solid #FFFFFF;
+}
+
+.menu-container .menu .list .id-list {
+  width: 20%;
+}
+
+.menu-container .menu .list .email-list {
+  width: 100%;
 }
 
 .header-container {

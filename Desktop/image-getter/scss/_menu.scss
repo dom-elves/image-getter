@@ -1,4 +1,4 @@
-
+@import '_variables.scss';
 
 
 .menu-container {
@@ -13,12 +13,33 @@
   justify-content: center;
   display: none;
   .menu {
-    width: 300px;
+    width: 450px;
     height: 100%;
-    background-color: #000000;
+    background-color: $lightblue;
     margin: 0px auto 0px auto;
-    p {
+    display: flex;
+    flex-direction: column;
+    h3 {
       color: #FFFFFF;
+    }
+    .list {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      border: 2px solid #FF0000;
+      height: 100%;
+      h5 {
+        color: #FFFFFF;
+      }
+      .email-list, .id-list {
+        border: 2px solid #FFFFFF;
+      }
+      .id-list {
+        width: 20%;
+      }
+      .email-list {
+        width: 100%;
+      }
     }
   }
 }

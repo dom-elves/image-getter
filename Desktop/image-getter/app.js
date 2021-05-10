@@ -1,10 +1,19 @@
 
+
+
+
+const linkedArray = { };
+
+let imageId = " "; //empty string for image ids so they can be global variables
+
+
+
 const pages = function () {
       const randomPage = Math.floor(Math.random() * 10) + 1
       axios.get(`https://picsum.photos/v2/list?page=${randomPage}&limit=100`)
           .then(function(response) {
               const chosenImage = randomImage(response.data)
-
+               imageId = chosenImage.id; //takes image id
                document.getElementById("number").innerHTML = chosenImage.id;
                document.getElementById("name").innerHTML = chosenImage.author;
                document.getElementById("image").src = chosenImage.download_url;
@@ -22,12 +31,7 @@ const randomImage = function (array) {
 
 window.onload = pages();
 
-$(".new-button").on("click", pages);
-
-
-
-
-
+$(".new-button").on("click", pages); //gets a new image by running pages()
 
 
 
@@ -45,13 +49,54 @@ function validate() {
   const email = $("#email").val();
 
   if (validateEmail(email)) {
-    console.log("working");
+    document.getElementById("link-button").addEventListener("click", saveEmail);
+
+
   } else {
     alert("please enter a valid email address");
   }
 }
 
 $(".link-button").on("click", validate);
+
+
+
+
+//remember emails that were entered
+function saveEmail() {
+  var savedEmail = document.getElementById("email").value; //takes the email value
+    console.log(savedEmail);
+    if (linkedArray[savedEmail] === undefined) {
+      linkedArray[savedEmail] = [imageId]; //creates an empty array so emails can go in, also accepts new emails
+    } else {
+      if (linkedArray[savedEmail].includes(imageId)) { //checks if an email already exists
+        alert("email address is already assigne to this image id");
+      }
+       else {
+         linkedArray[savedEmail].push(imageId); //adds image id to the array
+          for (let i = 0; i < linkedArray[savedEmail].length; i++) {
+            let idFinal = `<p> ${linkedArray[savedEmail][i]} </p>`;
+            idFinal = document.getElementById("id-number").innerHTML;
+          }
+
+       }
+    }
+  }
+
+
+  // var cars = ["BMW", "Volvo", "Saab", "Ford", "Fiat", "Audi"];
+  // var text = "";
+  // var i;
+  // for (i = 0; i < cars.length; i++) {
+  //   text += cars[i] + "<br>";
+  // }
+  // document.getElementById("demo").innerHTML = text;
+
+
+
+
+
+
 
 
 //makes the input popup appear
@@ -71,7 +116,7 @@ function hidepopup() {
 $(".cancel-button").on("click", hidepopup);
 
 
-//jquery for input section icon animations
+
 
 
 
