@@ -22,3 +22,23 @@
  .fas { //makes fontawesome icons white
    color: #FFFFFF;
  }
+
+ .nofooter {
+   display: flex;
+   flex-direction: column;
+ }
+
+
+
+@media screen and (min-width: $break-md) {
+  .nofooter {
+    display: flex;
+    flex-direction: row-reverse;
+    height: calc(100vh - 180px);
+    justify-content: flex-end;
+  }
+}
+
+// .info-and-image {
+//   left: 0px;
+// }

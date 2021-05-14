@@ -14,6 +14,7 @@
   <link rel="stylesheet" href="css/style.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://unpkg.com/core-js-bundle@3.9.1/minified.js"></script>
 
 </head>
 
@@ -26,7 +27,7 @@
       <div class="email-list" id="email-list">
 
       </div>
-    
+
 
 
 
@@ -62,6 +63,8 @@
 
 
 <div class="main">
+  <div class="nofooter">
+  <div class="info-and-image">
   <div class="info" id="info">
     <div class="photographer">
       <h4 id="photographer">Photographer:&nbsp;</h4>
@@ -81,12 +84,13 @@
       <p>&nbsp;pixels.</p>
     </div>
     <div class="image-area">
-      <img id="image" class="image"></img>
+      <img id="image" class="image">
     </div>
     <div class="photo-source">
       <p>See this image on <a id="unsplash">Unsplash</a></p>
     </div>
     </div>
+  </div>
 
     <div class="input-section">
       <div class="input-content">
@@ -112,16 +116,19 @@
     </div>
   </div>
   </div>
-
-<div class="footer-container">
-  <footer>
-    <p>&copy; Dominic Elves, 2021</p>
-    <p>A product for Nematters</p>
-  </footer>
 </div>
 
+  <div class="footer-container">
+    <footer>
+      <p>&copy; Dominic Elves, 2021</p>
+      <p>A product for Nematters</p>
+    </footer>
+  </div>
+
 </div>
-<script src="app.js"></script>
+
+
+<script src="js/app.js"></script>
 </body>
 
 </html>
