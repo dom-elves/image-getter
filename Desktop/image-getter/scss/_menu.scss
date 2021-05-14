@@ -5,41 +5,103 @@
   background-color: rgba(0, 0, 0, 0.7);
   height: 100vh;
   width: 100%;
-  z-index: 100;
+  z-index: 50;
   position: fixed;
   overflow: hidden;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  display: none;
+  flex-direction: row;
+  visibility: hidden;
+  .empty {
+    height: 100vh;
+    width: calc(100vw - 300px);
+    position: fixed;
+    right: 0px;
+    z-index: 101;
+  }
+
   .menu {
-    width: 450px;
+    width: 300px;
     height: 100%;
-    background-color: $lightblue;
-    margin: 0px auto 0px auto;
     display: flex;
     flex-direction: column;
-    h3 {
+    z-index: 100;
+
+
+    h4 {
+      padding: 10px;
       color: #FFFFFF;
+      background-color: $darkblue;
+      width: 100%;
+      text-align: center;
+      height: 130px;
+      margin-bottom: 0px;
+      width: 300px;
+      
+
     }
-    .list {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-around;
-      border: 2px solid #FF0000;
-      height: 100%;
-      h5 {
-        color: #FFFFFF;
-      }
-      .email-list, .id-list {
-        border: 2px solid #FFFFFF;
-      }
-      .id-list {
-        width: 20%;
-      }
+
       .email-list {
-        width: 100%;
-      }
+        width: 300px;
+        overflow: visible;
+        display: flex;
+        flex-direction: column;
+        background-color: $grey;
+        height: 100%;
+
+        .email-and-id {
+          display: flex;
+          flex-direction: column;
+          margin-left: 0px;
+          width: 360px;
+        }
+        .email-pop {
+          display: flex;
+
+          width: 300px;
+          justify-content: space-between;
+        }
+        h6 {
+          padding: 10px;
+          color: #FFFFFF;
+          background-color: $darkblue;
+          border: 2px solid $lightblue;
+          width: 250px;
+          height: 50px;
+          text-align: center;
+          margin-bottom: 0px;
+          font-weight: bold;
+
+
+          &:hover {
+            background-color: $lightblue;
+            border: 2px solid $darkblue;
+          }
     }
   }
+
+}
+}
+
+.pop-menu {
+  height: 100%;
+  width: 300px;
+  background-color: #FFFFFF;
+  display: none;
+  border-right: 2px solid $lightblue;
+  border-bottom: 2px solid $lightblue;
+  border-top: 2px solid $darkblue;
+  border-left: 2px solid $darkblue;
+
+
+  p {
+    color: $darkblue;
+    margin-bottom: 0px;
+    font-weight: bold;
+    height: 25px;
+    width: 300px;
+    margin-top: 5px;
+    text-align: center;
+
+  }
+
 }

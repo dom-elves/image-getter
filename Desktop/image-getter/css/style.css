@@ -2,50 +2,99 @@
   background-color: rgba(0, 0, 0, 0.7);
   height: 100vh;
   width: 100%;
-  z-index: 100;
+  z-index: 50;
   position: fixed;
   overflow: hidden;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  display: none;
+  flex-direction: row;
+  visibility: hidden;
+}
+
+.menu-container .empty {
+  height: 100vh;
+  width: calc(100vw - 300px);
+  position: fixed;
+  right: 0px;
+  z-index: 101;
 }
 
 .menu-container .menu {
-  width: 450px;
+  width: 300px;
   height: 100%;
-  background-color: #91A7FF;
-  margin: 0px auto 0px auto;
   display: flex;
   flex-direction: column;
+  z-index: 100;
 }
 
-.menu-container .menu h3 {
+.menu-container .menu h4 {
+  padding: 10px;
   color: #FFFFFF;
+  background-color: #0B1546;
+  width: 100%;
+  text-align: center;
+  height: 130px;
+  margin-bottom: 0px;
+  width: 300px;
 }
 
-.menu-container .menu .list {
+.menu-container .menu .email-list {
+  width: 300px;
+  overflow: visible;
   display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  border: 2px solid #FF0000;
+  flex-direction: column;
+  background-color: #B7B7B7;
   height: 100%;
 }
 
-.menu-container .menu .list h5 {
+.menu-container .menu .email-list .email-and-id {
+  display: flex;
+  flex-direction: column;
+  margin-left: 0px;
+  width: 360px;
+}
+
+.menu-container .menu .email-list .email-pop {
+  display: flex;
+  width: 300px;
+  justify-content: space-between;
+}
+
+.menu-container .menu .email-list h6 {
+  padding: 10px;
   color: #FFFFFF;
+  background-color: #0B1546;
+  border: 2px solid #91A7FF;
+  width: 250px;
+  height: 50px;
+  text-align: center;
+  margin-bottom: 0px;
+  font-weight: bold;
 }
 
-.menu-container .menu .list .email-list, .menu-container .menu .list .id-list {
-  border: 2px solid #FFFFFF;
+.menu-container .menu .email-list h6:hover {
+  background-color: #91A7FF;
+  border: 2px solid #0B1546;
 }
 
-.menu-container .menu .list .id-list {
-  width: 20%;
+.pop-menu {
+  height: 100%;
+  width: 300px;
+  background-color: #FFFFFF;
+  display: none;
+  border-right: 2px solid #91A7FF;
+  border-bottom: 2px solid #91A7FF;
+  border-top: 2px solid #0B1546;
+  border-left: 2px solid #0B1546;
 }
 
-.menu-container .menu .list .email-list {
-  width: 100%;
+.pop-menu p {
+  color: #0B1546;
+  margin-bottom: 0px;
+  font-weight: bold;
+  height: 25px;
+  width: 300px;
+  margin-top: 5px;
+  text-align: center;
 }
 
 .header-container {

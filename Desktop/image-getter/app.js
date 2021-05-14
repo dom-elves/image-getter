@@ -60,37 +60,74 @@ function validate() {
 $(".link-button").on("click", validate);
 
 
+//function that is later called to add id
+function applyId(id, email) {
+        let container = document.getElementById(email);
+        let p = document.createElement("p") //creates p element
+          p.append(`${imageId}`) //adds in value
+          container.append(p); //applies it to the page
+        }
+
+//function that is later called to add email
+function mailDiv(theEmail, container) {
+        let p = document.createElement("h6") //creates p element
+        p.append(`${theEmail}`) //adds in value
+        container.append(p); //applies it to the page
+        p.setAttribute("class", "email-pop"); //adds the class used later
+        return p;
+      }
 
 
-//remember emails that were entered
+
+// adds email and ids
 function saveEmail() {
   var savedEmail = document.getElementById("email").value; //takes the email value
-    console.log(savedEmail);
     if (linkedArray[savedEmail] === undefined) {
       linkedArray[savedEmail] = [imageId]; //creates an empty array so emails can go in, also accepts new emails
+
+      let emailId = document.createElement("div") //creates div for emails and id to sit in
+      emailId.setAttribute("class", "email-and-id") //adds the class
+      document.getElementById("email-list").append(emailId) //adds the image id
+
+      const newP = mailDiv(savedEmail, emailId);
+      const newDiv = popmenu(imageId, emailId);
+
+              function popmenu(theId, container) { //creates div and puts imageid in it as text
+
+                let div = document.createElement("div") //creats the div for the email
+                div.setAttribute("class", "pop-menu");
+                div.setAttribute("id", savedEmail);
+                container.append(div)
+
+                let imageP = document.createElement("p") //creates a <p> for the id to sit in
+                imageP.append(theId)
+                div.append(imageP)
+
+                return div;
+              }
+
+
+      newP.addEventListener("click", function() { //allows the email to be clicked on
+          $(newDiv).toggle(); //toggles id list
+      })
+
+
     } else {
       if (linkedArray[savedEmail].includes(imageId)) { //checks if an email already exists
-        alert("email address is already assigne to this image id");
+        alert("email address is already assigned to this image id");
       }
        else {
          linkedArray[savedEmail].push(imageId); //adds image id to the array
-          for (let i = 0; i < linkedArray[savedEmail].length; i++) {
-            let idFinal = `<p> ${linkedArray[savedEmail][i]} </p>`;
-            idFinal = document.getElementById("id-number").innerHTML;
-          }
-
+           applyId(imageId, savedEmail); //appends id to id array
+         }
        }
-    }
-  }
+     }
 
 
-  // var cars = ["BMW", "Volvo", "Saab", "Ford", "Fiat", "Audi"];
-  // var text = "";
-  // var i;
-  // for (i = 0; i < cars.length; i++) {
-  //   text += cars[i] + "<br>";
-  // }
-  // document.getElementById("demo").innerHTML = text;
+
+
+
+
 
 
 
@@ -125,18 +162,17 @@ $(".cancel-button").on("click", hidepopup);
 
 
 
-
 //burger menu stuff
 
 function showmenu() {
-  $('.menu-container').css("display", "block");
+  $('.menu-container').css("visibility", "visible");
   $('#burger1').toggleClass('burger1-animate')
   $('#burger2').toggleClass('burger2-animate')
   $('#burger3').toggleClass('burger3-animate')
 }
 
 function hidemenu() {
-  $('.menu-container').css("display", "none");
+  $('.menu-container').css("visibility", "hidden");
   $('#burger1').toggleClass('burger1-animate')
   $('#burger2').toggleClass('burger2-animate')
   $('#burger3').toggleClass('burger3-animate')
@@ -144,4 +180,4 @@ function hidemenu() {
 }
 
 $('.burger-container').on("click", showmenu)
-$('.menu-container').on("click", hidemenu)
+$('.empty').on("click", hidemenu)
