@@ -144,3 +144,11 @@ function hidemenu() {
 
 $('.burger-container').on("click", showmenu);
 $('.empty').on("click", hidemenu);
+
+
+
+//mq for popup reappearing
+
+function mqpopup() {
+  $(".popup").css("visibility", "visibile")
+}

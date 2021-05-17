@@ -130,8 +130,10 @@
     bottom: 50px;
     left: 0px;
     visibility: visible;
-    height: calc(100vh - 185px);
-
+    height: calc(100vh - 180px);
+    .triangle-container {
+      visibility: hidden;
+    }
     .input-content {
 
 
@@ -148,13 +150,14 @@
         .assign-button {
           display: none;
         }
+
   }
   }
   .aside {
     display: flex;
     flex-direction: column-reverse;
     .popup {
-      visibility: visible;
+      visibility: visible !important;
       background-color: #FFFFFF;
       padding: 5px;
       .popup-buttons {
