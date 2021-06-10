@@ -2,12 +2,14 @@
 
 var linkedArray = {};
 var imageId = " "; //empty string for image ids so they can be global variables
+var unsplashLink = " ";
 
 var pages = function pages() {
   var randomPage = Math.floor(Math.random() * 10) + 1;
   axios.get("https://picsum.photos/v2/list?page=".concat(randomPage, "&limit=100")).then(function (response) {
     var chosenImage = randomImage(response.data);
     imageId = chosenImage.id; //takes image id
+    unsplashLink = chosenImage.url;
 
     document.getElementById("number").innerHTML = chosenImage.id;
     document.getElementById("name").innerHTML = chosenImage.author;
@@ -37,45 +39,73 @@ function validate() {
   var email = $("#email").val();
 
   if (validateEmail(email)) {
-    document.getElementById("link-button").addEventListener("click", saveEmail);
+    saveEmail();
+
   } else {
     alert("please enter a valid email address");
   }
 }
 
+
 $(".link-button").on("click", validate); //function that is later called to add id
 
-function applyId(id, email) {
+// function applyId(id, email) {
   var container = document.getElementById(email);
-  var p = document.createElement("p"); //creates p element
-
-
-  p.appendChild(document.createTextNode(imageId));
-
-  container.appendChild(p); //applies it to the page
-} //function that is later called to add email
+//   var p = document.createElement("p"); //creates p element
+//
+//   p.appendChild(document.createTextNode(imageId));
+//
+//   container.appendChild(p); //applies it to the page
+// } //function that is later called to add email
 
 
 function mailDiv(theEmail, container) {
-  var p = document.createElement("h6"); //creates p element
-
-  $(p).append("".concat(theEmail)); //adds in value
-
-  container.appendChild(p); //applies it to the page
-
-  p.setAttribute("class", "email-pop"); //adds the class used later
-
-  return p;
+  var h6 = document.createElement("h6"); //creates h6 element
+  $(h6).append("".concat(theEmail)); //adds in value
+  container.appendChild(h6); //applies it to the page
+  h6.setAttribute("class", "email-pop"); //adds the class used later
+  console.log("email h6 created and populated");
+  return h6;
 }
+
+
 
 // adds email and ids
 function saveEmail() {
   var savedEmail = document.getElementById("email").value; //takes the email value
 
+
+  function popmenu(theId, container) {
+    alert("link successful!");
+    //creates div and puts imageid in it as text
+    var div = document.createElement("div");
+    var imageP = document.createElement("p"); //creates a <p> for the id to sit in
+    var unsplashAnchor = document.createElement("a"); //creates <a> for the link
+
+    div.setAttribute("class", "pop-menu");
+    div.setAttribute("id", savedEmail);
+    container.appendChild(div);
+    imageP.setAttribute("id", imageId);
+
+
+    div.appendChild(imageP);
+
+
+    unsplashAnchor.appendChild(document.createTextNode(theId));
+    unsplashAnchor.setAttribute("href", unsplashLink);
+    unsplashAnchor.setAttribute("target", '_blank');
+
+
+    imageP.appendChild(unsplashAnchor);
+    return div;
+  }
+
+
   if (linkedArray[savedEmail] === undefined) {
-    linkedArray[savedEmail] = [imageId]; //creates an empty array so emails can go in, also accepts new emails
+
 
     var emailId = document.createElement("div"); //creates div for emails and id to sit in
+    linkedArray[savedEmail] = [imageId]; //creates an empty array so emails can go in, also accepts new emails
 
     emailId.setAttribute("class", "email-and-id"); //adds the class
 
@@ -84,34 +114,35 @@ function saveEmail() {
     var newP = mailDiv(savedEmail, emailId);
     var newDiv = popmenu(imageId, emailId);
 
-    function popmenu(theId, container) {
-      //creates div and puts imageid in it as text
-      var div = document.createElement("div"); //creats the div for the email
-      div.setAttribute("class", "pop-menu");
-      div.setAttribute("id", savedEmail);
-      container.appendChild(div);
 
-      var imageP = document.createElement("p"); //creates a <p> for the id to sit in
-      imageP.appendChild(document.createTextNode(theId));
-      div.appendChild(imageP);
-      return div;
-    }
 
     newP.addEventListener("click", function () {
       //allows the email to be clicked on
       $(newDiv).toggle(); //toggles id list
+
     });
   } else {
+
+    document.getElementById(emailId);
+    //query selector to find div that contains unique email
+    //emailId equal to ^
+
+
     if (linkedArray[savedEmail].includes(imageId)) {
       //checks if an email already exists
       alert("email address is already assigned to this image id");
     } else {
       linkedArray[savedEmail].push(imageId); //adds image id to the array
 
-      applyId(imageId, savedEmail); //appends id to id array
+      popmenu(imageId, emailId); //appends id to id array
     }
   }
 }
+
+
+
+
+
 
 //makes the input popup appear
 function showpopup() {
