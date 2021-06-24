@@ -49,14 +49,7 @@ function validate() {
 
 $(".link-button").on("click", validate); //function that is later called to add id
 
-// function applyId(id, email) {
-  var container = document.getElementById(email);
-//   var p = document.createElement("p"); //creates p element
-//
-//   p.appendChild(document.createTextNode(imageId));
-//
-//   container.appendChild(p); //applies it to the page
-// } //function that is later called to add email
+
 
 
 function mailDiv(theEmail, container) {
@@ -73,31 +66,55 @@ function mailDiv(theEmail, container) {
 // adds email and ids
 function saveEmail() {
   var savedEmail = document.getElementById("email").value; //takes the email value
-
+  // var container = document.getElementById(email);
 
   function popmenu(theId, container) {
-    alert("link successful!");
-    //creates div and puts imageid in it as text
-    var div = document.createElement("div");
-    var imageP = document.createElement("p"); //creates a <p> for the id to sit in
-    var unsplashAnchor = document.createElement("a"); //creates <a> for the link
+    var divID = document.getElementById(savedEmail);
+      if(divID === null) {
+        // var checksavedEmail = divID.value;
 
-    div.setAttribute("class", "pop-menu");
-    div.setAttribute("id", savedEmail);
-    container.appendChild(div);
-    imageP.setAttribute("id", imageId);
+        //creates div and puts imageid in it as text
+        var div = document.createElement("div");
+        var imageP = document.createElement("p"); //creates a <p> for the id to sit in
+        var unsplashAnchor = document.createElement("a"); //creates <a> for the link
 
 
-    div.appendChild(imageP);
+        div.setAttribute("class", "pop-menu");
+        div.setAttribute("id", savedEmail);
+        container.appendChild(div);
+        imageP.setAttribute("id", imageId);
 
 
-    unsplashAnchor.appendChild(document.createTextNode(theId));
-    unsplashAnchor.setAttribute("href", unsplashLink);
-    unsplashAnchor.setAttribute("target", '_blank');
+        div.appendChild(imageP);
 
 
-    imageP.appendChild(unsplashAnchor);
-    return div;
+        unsplashAnchor.appendChild(document.createTextNode(theId));
+        unsplashAnchor.setAttribute("href", unsplashLink);
+        unsplashAnchor.setAttribute("target", '_blank');
+
+
+        imageP.appendChild(unsplashAnchor);
+        alert("link successful!");
+        return div;
+
+    } else {
+
+        console.log("new ID assigned to email");
+        var imageP = document.createElement("p");
+        var unsplashAnchor = document.createElement("a");
+
+        document.getElementById(savedEmail).appendChild(imageP);
+        unsplashAnchor.appendChild(document.createTextNode(theId));
+        unsplashAnchor.setAttribute("href", unsplashLink);
+        unsplashAnchor.setAttribute("target", '_blank');
+
+
+        imageP.appendChild(unsplashAnchor);
+        alert("link successful!");
+
+
+    // REWRITE THIS BIT
+  }
   }
 
 
@@ -113,8 +130,6 @@ function saveEmail() {
 
     var newP = mailDiv(savedEmail, emailId);
     var newDiv = popmenu(imageId, emailId);
-
-
 
     newP.addEventListener("click", function () {
       //allows the email to be clicked on
@@ -138,10 +153,6 @@ function saveEmail() {
     }
   }
 }
-
-
-
-
 
 
 //makes the input popup appear
